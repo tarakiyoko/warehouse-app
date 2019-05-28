@@ -1,0 +1,30 @@
+<div>
+  <h1 style="float: left;">Enter New User</h1>
+</div>
+<br/>
+<div>
+  <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+    <div class="input-field">
+      <label class="email-label"> 
+        Email: 
+      </label>
+      <input class="email" type="email" formControlName="email" required>      
+    </div>
+    <div *ngIf="userForm.controls.email.invalid && userForm.controls.email.dirty" class="validation-error email-error">Email Required</div>
+    <div class="input-field">
+      <label class ="name-label">
+        Name:
+      </label>
+      <input class="name" type="text" formControlName="name" required>       
+    </div>
+    <div *ngIf="userForm.controls.name.invalid && userForm.controls.name.dirty" class="validation-error name-error" >Name Required</div>
+    <div class="input-field">
+      <label class ="phone-label">
+        Phone Number:
+      </label>
+      <input class="phone" type="text" formControlName="phone" required>       
+    </div>
+    <div *ngIf="userForm.controls.phone.invalid && userForm.controls.phone.dirty" class="validation-error phone-error" >Phone Number Required</div>
+    <input *ngIf="userForm.valid" class="submit" type="submit">
+  </form>
+</div>
